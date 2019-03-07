@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import TodoList from './TodoList'
 
-class App extends Component {
+export default class App extends Component {
+  state = {
+    todos: [
+      {id: 1, title: 'First todo', completed: false},
+      {id: 2, title: 'Second todo', completed: true},
+    ]
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+        <h1>Todo app</h1>
+
+          <div className="input-field">
+            <input type="text" />
+            <label>Todo name</label>
+          </div>
+
+          <TodoList todos={this.state.todos} />
       </div>
     );
   }
 }
-
-export default App;
